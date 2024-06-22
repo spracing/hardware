@@ -1,0 +1,23 @@
+SPRacingRXG1
+
+* ESP32-S3 with Wifi (2.4Ghz)
+* 2.4Ghz Gemini True Diversity ELRS receiver with telemetry.
+* 12 channel PWM, 2 pairs of pins double as first and second UARTs.
+* ICM42605/ICM42688P with noise-filtered supply.
+* ExpressLRS Gemini RX, with PAs and TCXO.
+* USB socket, no need for UART adaptor.
+* Battery voltage monitoring.
+* Button (for binding/wifi/reset).
+* Trimmer pot adjustment for ELRS use (e.g. gyro gain)
+* 2-8S battery voltage.
+* TVS diode for protection.
+* External antennas for ELRS 2.4Ghz Radio.
+* Ceramic antenna for WIFI.
+* 2x adjustable 3A voltage regulators for HV servos (manually adjustable between ~4.9-~12.9V using trim pots).
+* 1x fixed 5V switching regulator.
+* 3V switching regulator.
+* Selectable voltage for 3 banks of 4 PWM outputs (i.e. 5V (first VReg) or selected voltage on 2nd VReg.
+* 2 Uarts available on 1 bank of the PWM outputs.
+* Single RGB led
+* Header for RGB led output (5V)
+* 30.5 x 54.75mm

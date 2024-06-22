@@ -1,0 +1,394 @@
+*************************************************************
+FileName = PCB1.GBR
+AutoAperture = True
+*************************************************************
+Generating : 
+      File : PCB1.GTL
+
+    Adding Layer      : TopLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GBL
+
+    Adding Layer      : BottomLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D10
+    D11
+    D29
+    D32
+    D44
+    D45
+    D46
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GTO
+
+    Adding Layer      : TopOverlay
+
+
+Used DCodes :
+    D10
+    D12
+    D31
+    D60
+    D63
+    D64
+    D65
+    D66
+    D67
+    D68
+    D69
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GBO
+
+    Adding Layer      : BottomOverlay
+
+
+Used DCodes :
+    D10
+    D66
+    D77
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GTP
+
+    Adding Layer      : TopPaste
+
+    Adding Layer      : TopLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D78
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GBP
+
+    Adding Layer      : BottomPaste
+
+    Adding Layer      : BottomLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GTS
+
+    Adding Layer      : TopSolder
+
+    Adding Layer      : TopLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D32
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
+    D85
+    D86
+    D87
+    D88
+    D89
+    D90
+    D91
+    D92
+    D93
+    D94
+    D95
+    D96
+    D97
+    D98
+    D99
+    D100
+    D101
+    D102
+    D103
+    D104
+    D105
+    D106
+    D107
+    D108
+    D109
+    D110
+    D111
+    D112
+    D113
+    D114
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GBS
+
+    Adding Layer      : BottomSolder
+
+    Adding Layer      : BottomLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D108
+    D109
+    D110
+    D112
+    D113
+    D114
+    D115
+    D116
+    D117
+    D118
+    D119
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GKO
+
+    Adding Layer      : KeepOutLayer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GM1
+
+    Adding Layer      : Mechanical1
+
+
+Used DCodes :
+    D66
+    D120
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GM3
+
+    Adding Layer      : Mechanical3
+
+
+Used DCodes :
+    D64
+    D121
+*************************************************************
+
+*************************************************************
+Generating : 
+      File : PCB1.GM4
+
+    Adding Layer      : Mechanical4
+
+
+Used DCodes :
+    D64
+    D120
+    D121
+    D122
+    D123
+    D124
+    D125
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : PCB1.GPT
+
+    Adding Layer      : TopLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : PCB1.GPB
+
+    Adding Layer      : BottomLayer
+
+    Adding Layer      : MultiLayer
+
+
+Used DCodes :
+    D44
+    D45
+    D46
+    D48
+    D49
+    D50
+    D51
+    D62
+*************************************************************
+
+*************************************************************
+Generating : Drill Drawing
+      File : PCB1.GD1
+
+    Adding Layer      : DrillDrawing
+
+    Adding Drill Pair : TopLayer-BottomLayer
+
+
+Used DCodes :
+    D120
+    D126
+    D127
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : PCB1.GG1
+
+    Adding Layer      : DrillGuide
+
+    Adding Drill Pair : TopLayer-BottomLayer
+
+
+Used DCodes :
+    D120
+*************************************************************
+

@@ -1,0 +1,36 @@
+CAM Outputs Generation Report
+for 'CAM Outputs for PCB1.cam'
+at 17:04:57 on 2-Sep-2016 
+
+
+'Pick Place Output 1'
+'Pick Place for PCB1.txt' generated
+'Pick Place for PCB1.csv' generated
+'Pick Place for PCB1.pik' generated
+
+'Gerber Output 1'
+'PCB1.GTL' generated
+'PCB1.GBL' generated
+'PCB1.GTO' generated
+'PCB1.GBO' generated
+'PCB1.GTP' generated
+'PCB1.GBP' generated
+'PCB1.GTS' generated
+'PCB1.GBS' generated
+'PCB1.GKO' generated
+'PCB1.GM1' generated
+'PCB1.GM3' generated
+'PCB1.GM4' generated
+'PCB1.GPT' generated
+'PCB1.GPB' generated
+'PCB1.GD1' generated
+'PCB1.GG1' generated
+'PCB1.REP' generated
+
+'NC Drill Output 1'
+'PCB1.TXT' generated
+'PCB1.DRL' generated
+'PCB1.DRR' generated
+
+
+Total number of generated files = 23

@@ -1,0 +1,129 @@
+
+# RevA
+
+## Required hacks
+
+* See latest 'with-hacks' schematic, trace cutting and bodge wires required.
+
+## Errata
+
+* OSD Debug pad silk screen is wrong (G/O/N/D/C, but should be O/G/N/D/C).
+* 3D model of SX1280 files has wrong pin-1 orientation.  Silkscreen is OK.
+* 6 pins on the ESP32 that were used, cannot be used! Design is incorrect and unusable.
+* VTX bias non-functional with ELRS code (it's inverted) software hacks were tested, but it seems the DAC output should be used to drive a FET.
+* ELRS RX/TX swapped on the mezzanine connector, swapped on the PCB edge pads, silk incorrect.
+* OSD RX/TX OK on the mezzanine connector, swapped on the PCB edge pads, silk incorrect.
+
+## Changes
+
+* N/A Initial revision.
+
+# Rev B
+
+## Required hacks
+
+* Fit 10k resistor on top of C65 so that the VTX PA is not enabled in ESP32 DL mode.
+
+## Errata
+
+* Missing inline inductor on clock signal, see ESP32-S3 hardware design guidelines - "2.4.1
+External Clock Source"
+* Unstable clock (xtal used was ECS-400-10-37B2-CKM-TR (10pF load) an 2x external 10pF caps)
+  load caps should have been 20pF each (min) using formula "CL = (C1 * C2) / (C1 + C2) + Cstray"
+* Missing pull-down on VTX-PA EN line, VTX should be disabled in ESP32 download mode and when configuring unified target.
+* ELRS RX/TX signals seem to be swapped somehow, need to re-check ESP32S3 pinout.  The RX/TX wires have to be swapped on the jig when going from a RevA board to a RevB board.
+* Button doesn't reliable make the ESP32PicoD4 (RevA) or ESP32S3 (RevB) enter boot/download mode, button has good continuity/switching behaviour when tested unpowered.
+* Missing GND connection on Pin 5 on both SX1280's, this was to do the GND on the reference schematic also not being connected, which is likely an error.
+
+* Massive (500mV!) voltage sag on 5V rail when ELRS sends telemetry. 1:2 ratio and 100mW TLM power really bad.
+  Camera input voltage averages around 4.5V which is enough to cause 5V camera not to power up.
+  Sag causes banding on the transmitted video signal (anywhere it's measured, before or after the filter).
+  Sag lessened when using 10uF input caps on 2G4 PAs.
+  Increasing PA VDD input cap from 1uF to 10uF makes a huge difference.
+  Using direct-soldered cables makes a big difference, though PA input caps make bigger difference.
+  Doubling 3V3 input cap and output cap and doubling 3V3_BEC input cap to 20uF each makes no difference.
+  Adding a 10uF cap to the analog switch supply made no difference.
+  Changing the video filter supply from 4.7uF to 10uF cap makes no difference.
+  Removing the L4 or adding input caps makes no difference.
+  Connecting screen via cable and 30dB attenuator results in no interference, indicating the issue is radiated interference.
+  - the OSD never looses sync.
+  - the video signal, taken directly from the board at the output of the video filter, and fed to the video in on a monitor, is perfect.
+  - Rev A also had a little banding, but no noticable RF interference.
+
+## Changes from Rev A
+
+* Fixed OSD Debug pad silk screen.
+* Replaced MCU with ESP32S3
+* Used FET for VTX bias circuit, ESP32S3 does not have a DAC.
+* RF_NRESET from RevA split into RF_NRESET_1 and RF_NRESET_2 after it was found they need to be isolated.
+* RC network added to both RF_NRESET_1 and RF_NRESET_2.
+* Used different TCXO and added 1.8V LDO and bypass cap to improve TCXO compatibility (SMD2016 size)
+* Moved some resistors and caps by the camera connector inwards a little for better clearance.
+* Move Wifi antenna connector inwards a little for more clearance with EVO FCs.
+
+# Rev C
+
+## Errata
+
+* ELRS RX/TX - swapped on the mezzanine connector, OK on the PCB edge pads, silk OK.
+* OSD RX/TX  - OK on the mezzanine connector, swapped on the PCB edge pads, silk incorrect.
+
+## Changes from Rev B
+
+* Added LDO for OSD MCU.
+* Moved OSD MCU to it's own 3V3 supply from the LDO.
+* Used 1.5pF + 10pF caps for 40Mhz XTAL. C9/C8.
+* Added pull-down on VTX_PA_EN so it doesn't float in ESP32 download mode.
+* Added 2nd inductor on 2nd SX1280, routing the DCC_FB from between them is problematic.
+* Use 2x 10uF input caps on each 2G4 PA, should help with power delivery to the PAs.
+* 160khz low-pass filter in front of 2G4 PA VDD to smooth out step change when PA's are enabled/disabled.  70kHz half-wave measured.
+* Swapped CAM OSD CONTROL/LED_STRIP to move the CAM_OSD_CONTROL off the strapping pin GPIO46 to hopefully make entering download mode via the button
+  more reliable.
+* GND under all RF traces.
+* No RF trace vias.
+* RF traces connect to GND on same layer.
+* GND under RF traces conncted to GND on layer above.
+* Fixed (missing) GND on SX1280's on Pin 5 (not shown in typical application schematic, but DS doesn't say NOT to connect it when using TCXO)
+* Use ESP32S3PICO now it's available. Remove XO, which was problematic anyway.
+* Pay attention to power routing on 2G4 PAs to avoid ground bounce, follow guidelines in PA datasheet closely.
+* Connected SPI on L4 to Flash.
+* Minimum two vias for every power trace (MCU + VTX + SX1280 + PAs)
+* Stencil could be thinner and/or amount of paste on thermal pad on the S3 could be reduced so that the the S3 seating plane is lower. (50% on RevB, 40% on RevC)
+* Added 100nF cap over boot switch between GPIO0 and GND.
+
+## TODO
+
+* N/A
+
+## Maybe
+
+* Use different 3V3 regs with better transient response? (no, have too much stock, improve power routing and RF instead).
+* Maybe move the OSD and the video filter VDD to VTX supply (and remove the OSD MCU LDO, no keep new LDO)?
+* Maybe use 2450LP14A100T for RF PA's? (No.  Reworked RF instead).
+* Investigate intermittent boot switch on ESP, switch is OK but ESP32 isn't always happy with the signal and frequently ignores button presses. (Added 100nF cap over switch.)
+* Maybe add pull-up on VTX_SPILE? (No, issue was 25 bit SPI issue on ESP32)
+* Add more lead-out to the ESP32-S3 pads so rework is easier? (No, no issues with the S3 soldering after all)
+* Maybe add 10k pull-down on BOOT0 on STM32L4 to avoid having to set nBOOT0 in option bytes.
+  - Currently the BOOT0 pin *CAN* be used a GPIO/debugging pad.
+  - No, no need, no space.
+
+### If using non-pico S3
+
+* Add inline inductor on clock signal , see ESP32-S3 hardware design guidelines - "2.4.1
+External Clock Source"
+* Try and avoid routing signals under 40Mhz XTAL.
+
+# Rev D
+
+## Changes from Rev C
+
+* ELRS RX/TX swapped on the mezzanine connector. Pads OK, Mezzanine OK, Silk OK.
+* OSD RX/TX swapped on the PCB edge pads.  Pads OK, Mezzanine OK, Silk OK
+
+## TODO
+
+* N/A
+
+## Maybe
+
+* Remove Cap over ESP32S3 boot switch.

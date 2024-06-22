@@ -1,0 +1,34 @@
+SPRacingH7NEO
+
+* Next-generation STM32 H7 processor with hardware floating point unit for efficient flight calculations and faster ARM-Cortex M7 core running at 520Mhz.
+* ExpressLRS True diversity 2.4Ghz radio receiver built in, with 2 power amplifiers (PA) and low noise amplifiers (LNA) for extended range.
+* ELRS runs on an ESP32S3 dual core 240Mhz CPU with WIFI.
+* ICM42688P gyro with power supply filtering.
+* 8Mbps high-speed CAN tranceiver.
+* 8 Motor outputs. DSHOT/OneShot/PWM for ESCs and Servos.
+* 4MB of Dual Bank OctoSPI External Flash (2x2MB) for firmware.
+* 6 Serial Ports - NOT shared with the USB socket, one dedicated to the on-board ELRS receiver.
+* 2x Micro USB sockets, one for the H7, one for the ESP32S3.
+* 4 corner-mounted RGB LEDs connected to the H7.
+* 1 RGB LED for ELRS status.
+* 1 LED for FC status.
+* Dedicated corner outputs for programmable LEDs - great for orientation, racing and night flying.
+* Stackable design with mezzaine IO connectors for future expansion (spi, uart, i2c, gpio, adc, exti)
+* HD/DJI video connector (Standard 6-pin DJI pinout).
+* 9V 3A regulator.
+* 5V 3A regulator.
+* 2x 4in1 ESC connectors.
+* TVS diode for eliminating voltage spikes.
+* TCXO with dedicated power supply for rock-solid 2.4Ghz link frequency stability.
+* Battery monitoring for voltage and current.
+* Developer friendly debugging port (SWD) and boot mode selection for the H7.
+* Built-in JTAG debugger and COM port for the ESP32S3 for ELRS development.
+* 3x Side-press buttons, 1 for ELRS and 2 for the H7. For binding/wifi/settings/bootloader control.
+* Symmetrical design for a super tidy wiring.
+* ELRS PWM/DShot connector for 4 more ELRS controlled PWM/DShot channels.
+* JST-SH sockets *and* solder pads for IO. (2x4in1 ESC, UART, CAN, Debug, HD/DJI, PWM)
+* Also supports direct connection external of SBus, SumH, SumD, Spektrum1024/2048, CRSF, FPort, SRXL/XBus
+receivers.
+* H7 Firmware upgradable via USB, ESP32S3 firmware upgradable by Wifi, BF passthrough and USB.
+* Standard 30.5mm mounting hole patterns with 4mm holes and grommets for 3mm screws.
+* SP Racing logos.

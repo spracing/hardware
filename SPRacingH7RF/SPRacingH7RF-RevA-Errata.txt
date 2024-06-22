@@ -1,0 +1,11 @@
+Errata:
+
+SPRacingH7RF-RevA-20210221-1454
+
+Issues
+* J4 and J5 hold-downs can touch L3 causing a short.  QA inspection and reflow connectors if clearance is bad.
+
+Minor Changes for next revision:
+Y Move L3 towards the center of the board.
+Y Update the JST-SH connector patterns to use the new pattern with the hold-down.
+

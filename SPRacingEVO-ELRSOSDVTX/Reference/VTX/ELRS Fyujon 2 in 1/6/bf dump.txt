@@ -1,0 +1,47 @@
+# diff
+
+# version
+# Betaflight / STM32H730 (SP7V) 4.5.0 Jul 12 2023 / 18:07:29 (168741486e) MSP API: 1.46
+# config rev: 0d92b04
+
+# start the command batch
+batch start
+
+board_name SPRACINGH7EVO
+manufacturer_id SPRO
+
+# serial
+serial 0 64 115200 57600 0 115200
+serial 2 2048 115200 57600 0 115200
+
+# vtxtable
+vtxtable bands 6
+vtxtable channels 8
+vtxtable band 1 BOSCAM_A A FACTORY 5865 5845 5825 5805 5785 5765 5745 5725
+vtxtable band 2 BOSCAM_B B FACTORY 5733 5752 5771 5790 5809 5828 5847 5866
+vtxtable band 3 BOSCAM_E E FACTORY 5705 5685 5665    0 5885 5905    0    0
+vtxtable band 4 FATSHARK F FACTORY 5740 5760 5780 5800 5820 5840 5860 5880
+vtxtable band 5 RACEBAND R FACTORY 5658 5695 5732 5769 5806 5843 5880 5917
+vtxtable band 6 LOWRACE  L FACTORY 5333 5373 5413 5453 5493 5533 5573 5613
+vtxtable powerlevels 6
+vtxtable powervalues 1 2 14 19 22 25
+vtxtable powerlabels 0 RCE 25 100 250 400
+
+# master
+set dyn_notch_count = 1
+set dyn_notch_q = 500
+set acc_calibration = 41,-131,-24,1
+set dshot_bidir = ON
+set vtx_band = 4
+set vtx_channel = 4
+set vtx_power = 3
+set vtx_freq = 5800
+
+profile 0
+
+rateprofile 0
+
+# end the command batch
+batch end
+
+# 

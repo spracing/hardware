@@ -1,0 +1,9 @@
+5645-5945Mhz
+
+300Mhz Range
+
+5645+150 = 5795Mhz Center Frequency
+
+For antenna, need a Low-pass ceramic filter / Balun.
+
+Reference design uses LF2012-B5R5FAA low-pass.

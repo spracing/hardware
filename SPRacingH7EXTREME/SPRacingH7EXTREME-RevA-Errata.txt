@@ -1,0 +1,30 @@
+Errata:
+
+SPRacingH7EXTREME-RevA-20190410-1735
+
+Issues
+* None!
+
+Minor Changes for next revision:
+Y USB socket pattern with extra pads.
+Y Bigger inductor (See H7CINE), 4020 size? Not 2.5/2.0/1.2
+Y Move resistor near CAMERA socket.
+Y Remove un-needed GND pads on buttons.
+Y Update XDFN-4 pattern (See H7CINE)
+Y Update BMP388 pattern
+Y Connect FSYNC pins to CPU.
+Y Tent or remove vias under the XDFN-4 pads.
+Y Better routing for VTX/CAM power.
+Y Use smaller F98 capacitor pattern.
+Y Check solder-mask and paste-mask on small components and CPU.
+* Test-points for SWD.
+
+
+Bigger possible changes:
+* Different flash with memory mapped mode?
+* 4in1 ESC connector.
+* Drop boot button?
+* Drop pid-audio (must when using new OSD system)
+* New OSD system?
+* 3v3 on debug port?
+* VTX pit mode?

@@ -1,0 +1,73 @@
+Hi Dominic,
+
+Confirmed. Both pin 12 & 18 are not connected with bonding wires. We use these pins for routing 3.3V power in a 2-layer PCB Reference design. That is the reason.
+
+Regards,
+
+Henry
+
+---
+
+Hi Henry,
+
+Next question:
+10. Can you confirm pins 12 and pins 18 are Not Internally Connected and can be left un-connected, the reference schematics have them connected to +3v3.  See attached.  If they are NC then why are they connected to 3v3 on the reference designs?
+
+Many thanks,
+
+Dominic Clifton
+
+
+Hi Dominic,
+
+RTC6705- $1.2/ unit , 3000pcs/ per reel, 4 weeks lead time, we have 6705 in stock now.
+
+Regards,
+Terry.
+
+---
+
+Hi Dominic,
+
+1. Yes. You can disconnect these pins for video only application. Please see attached NA_5G_6705+6659E(3X3)s-SCH.pdf 2. Please see attached Mono Audio (MA) application circuits.
+3. Those are damping filters to attenuate the video signal from DVD player (e.g. 1Vpp).
+4. We don't know the side effect of removing these filters for your video signal.
+5. C21 is for DC blocking. The resistor divider here set the DC level for input stage and try to keep the video input as linear as possible.
+6. These resistors are ESD protection when an external DIP switch is used to select the channel. You can remove it if connected to MCU.
+7. See attached.
+8. No replacement for RTC6705. RTC6659 is EOL. You can use RTC6670P, or RTC5636H which will EOL this year. 
+9. @Terry, lead time and pricing please.
+
+Regards,
+
+Henry
+
+Tel: 886-2-87511358 ext: 271    Mobile: 0903-143400
+3F, No. 1, Alley 20, Lane 407, Sec.2, Tiding Blvd, Taipei 114, Taiwan, R.O.C
+ 
+-----Original Message-----
+From: dominic.clifton@seriouslypro.com [mailto:dominic.clifton@seriouslypro.com]
+Sent: Monday, May 8, 2023 2:10 AM
+To: 'djma' <djma@richwave.com.tw>; 'terrytai' <terrytai@richwave.com.tw>; 'yjho' <yjho@richwave.com.tw>
+Subject: RTC6705
+
+Hi everyone,
+
+It's been a while since I contacted you regarding the RTC6705, I ended up doing a different product in the end.  However I'm now ready to make a VTX using the RTC6705 again and have a couple of questions now that my schematic is in-progress.
+
+1. If I don't want to use ANY audio, can I leave the following pins disconnected?  If not what should I do.
+RF_VT2, VDD_6.0, AVT1, ACP1, AOUT1, VDD_6.5, AOUT2, ACP2, AVT2.
+2. If I want to use a MONO input, what components from the reference design can be omitted, which of the 6.0 or 6.5 circuits should be used, should any pins be bridged?
+3. It seems there is some filter made by C5/C4/L1/C7, C16/C15/L2/C3, R6/C17/R7/R15, please can you give me the requirements/specifications of the filters and the purpose of each one.
+4. Can a video signal conditioner be used instead of some of the filters, my design already uses an FMS6141 (Single-Channel 4 th Order Standard Definition Video Filter Driver).
+5. Please can you tell me the purpose of C21/R13 and the voltage divider at R21/R14.
+6. Are R11/R17/R8/R16/R5 simply current limiting resistors?  I intend to connect the RTC6705 to an ESP32-Pico-D4 and I'm wondering if they can be omitted without issues.
+7. Do you have any updated technical documentation for the RTC6705.
+8. Are there any replacement/new parts for either the RTC6705 or the RTC6659 PA.
+9. May I also enquire as to factory lead-times for the RTC6705, RTC6659 and current pricing?
+
+Many thanks!
+
+Dominic Clifton
+Seriously Pro Ltd.
+

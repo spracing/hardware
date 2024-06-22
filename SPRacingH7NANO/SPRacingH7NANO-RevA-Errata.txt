@@ -1,0 +1,13 @@
+Errata:
+
+SPRacingH7NANO-RevB-20190525-2221
+
+
+
+Issues:
+
+* None
+
+Changes for next revision:
+
+* Maybe use NCP167AMX330TBG instead of NCV8177AMX330TCG.  The NCP167 is 700mA, lower noise and better PSRR.

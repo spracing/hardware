@@ -1,0 +1,33 @@
+SPRacingEVO-ELRSOSDVTX
+
+Can be used stand-alone, stacked with a compatible FC such as the SPRacingH7EVO or mated to optional PDB (e.g. SPRacingEVO-ELRSOSDVTX-PDB) Suitable for use with or without a flight-controller.  Great for high-end builds and FC-less FPV wings/gliders, FPV RC Cars Trucks, etc.
+
+ELRS 2.4Ghz RX with Gemini True-diversity.
+ESP32-S3 MCU with integrated Flash, PSRAM, and Oscillator.
+5.8Ghz VTX controlled by ELRS.
+2x Power Amplifiers for ELRS-RX.
+ELRS Wifi support.
+Power Amplifier for VTX (~100mW-250mW, TBD).
+SPRacingPixelOSD Pixel-based Canvas OSD system. 
+OSD supports graphic drawing, No MAX7456! Not legacy character-based!
+4x PWM outputs.
+1Gbit flash chip for BlackBox logging expansion (when stacked with compatible FC)
+1x button for ELRS control.
+2x RGB LEDs for ELRS and VTX status.
+VBAT input to ELRS MCU for battery voltage monitoring.
+1x UART for CRSF/SBUS (ELRS)
+1x UART for SPRacingPixelOSD (CanvasAPI)
+2x stacking connectors for no-solder connection to compatible FCs
+2x u.FL/IPEX-1 RX Antenna connectors.
+1x u.FL/IPEX-1 VTX Antenna connector.
+1x u.FL/IPEX-1 Wifi Antenna connector.
+1x Camera connector (5V, Video, Audio, Camera OSD control).
+ELRS/OSD interconnect (dedicated UART between STM32 and ESP32-S3)
+Solder-pads for 4x PWM, 5V, 2x UART (7x castellated edge pads, 2.54mm pitch).
+Extremely developer friendly, full hardware debugger support for both ELRS and OSD MCUs.
+Full schematics available, excellent reference design for ELRS, VTX and SPRacingPixelOSD.
+Solder-pads for SWD (STM32L432 OSD MCU).
+Solder-pads for JTAG (ESP-S3 ELRS MCU).
+Solder-pads for SPI flash.
+20x20mm mounting pattern with 4mm holes.
+Supplied with grommets.

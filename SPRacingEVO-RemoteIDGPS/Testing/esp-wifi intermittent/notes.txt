@@ -1,0 +1,370 @@
+# session 1
+
+ieee80211_ioctl
+
+esp_wifi::wifi::os_adapter::wifi_int_disable
+
+esp_wifi::wifi::os_adapter::wifi_int_restore
+
+esp_hal::critical_section_impl::_critical_section_1_0_release
+
+xtensa_lx_rt::exception::esp32::_Level2InterruptVector
+
+xtensa_lx_rt::exception::assembly_esp32::__default_naked_level_2_interrupt
+
+xtensa_lx_rt::exception::assembly_esp32::restore_context
+
+
+ieee80211_ioctl
+
+esp_wifi::wifi::os_adapter::wifi_int_disable
+
+esp_hal::critical_section_impl::xtensa::acquire
+
+
+# session #2
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+Breakpoint 18, 0x4202beec in ieee80211_ioctl ()
+
+# session #3
+
+(gdb) info frame
+Stack level 7, frame at 0x3fc91ed0:
+ pc = 0x420117a5 in esp_wifi::common_adapter::chip_specific::phy_enable::{closure#0} (esp-wifi\src\common_adapter/common_adapter_esp32s3.rs:84); saved pc = 0x4200de9a
+ inlined into frame 8, caller of frame at 0x3fc91720
+ source language rust.
+ Arglist at unknown address.
+ Locals at unknown address, Previous frame's sp is 0x3fc91720
+ Saved registers:
+  ar28 at 0x3fc91670, ar29 at 0x3fc91674, ar30 at 0x3fc91678, ar31 at 0x3fc9167c, ar32 at 0x3fc91eb0, ar33 at 0x3fc91eb4, ar34 at 0x3fc91eb8, ar35 at 0x3fc91ebc, a0 at 0x3fc91670, a2 at 0x3fc91678, a3 at 0x3fc9167c, a4 at 0x3fc91eb0, a5 at 0x3fc91eb4, a6 at 0x3fc91eb8, a7 at 0x3fc91ebc
+(gdb) info stack
+#0  0x4037d33c in ram_chip_i2c_writeReg ()
+#1  0x4003589a in ?? ()
+#2  0x40035939 in ?? ()
+#3  0x4203ed98 in get_bias_ref_code ()
+#4  0x4203b256 in set_chan_freq_hw_init ()
+#5  0x4203b972 in rf_init ()
+#6  0x4203ba26 in register_chipv7_phy ()
+#7  0x420117a5 in esp_wifi::common_adapter::chip_specific::phy_enable::{closure#0} () at esp-wifi\src\common_adapter/common_adapter_esp32s3.rs:84
+#8  critical_section::with<(), esp_wifi::common_adapter::chip_specific::phy_enable::{closure_env#0}> () at D:\Users\Hydra\.cargo\registry\src\index.crates.io-6f17d22bba15001f\critical-section-1.1.2\src/lib.rs:229
+#9  esp_wifi::common_adapter::chip_specific::phy_enable () at esp-wifi\src\common_adapter/common_adapter_esp32s3.rs:66
+#10 0x4200de9a in esp_wifi::wifi::os_adapter::phy_enable () at esp-wifi\src\wifi/os_adapter.rs:993
+#11 0x4202abc5 in wifi_hw_start ()
+#12 0x4202b2d4 in wifi_start_process ()
+#13 0x42029b11 in ieee80211_ioctl_process ()
+#14 0x4037a6c0 in ppTask ()
+#15 0x42010734 in esp_wifi::compat::task_runner::run_c_task () at esp-wifi\src\compat/task_runner.rs:47
+(gdb) info registers
+pc             0x420117a5          0x420117a5 <esp_wifi::common_adapter::chip_specific::phy_enable+249>
+lbeg           0x40036ab1          1073965745
+lend           0x40036ac3          1073965763
+lcount         0x0                 0
+sar            0x18                24
+ps             0x60705             395013
+threadptr      0x0                 0
+br             0x0                 0
+scompare1      0x100               256
+acclo          0x0                 0
+acchi          0x0                 0
+m0             0x0                 0
+m1             0x0                 0
+m2             0x0                 0
+m3             0x0                 0
+fcr            0x0                 0
+fsr            0x0                 0
+pwrctl         0x0                 0
+pwrstat        0x0                 0
+eristat        0x0                 0
+cs_itctrl      0x0                 0
+cs_claimset    0x0                 0
+cs_claimclr    0x0                 0
+cs_lockaccess  0x0                 0
+cs_lockstatus  0x0                 0
+cs_authstatus  0x0                 0
+fault_info     0x0                 0
+trax_id        0x0                 0
+trax_control   0x0                 0
+trax_status    0x0                 0
+trax_data      0x0                 0
+trax_address   0x0                 0
+trax_pctrigger 0x0                 0
+trax_pcmatch   0x0                 0
+trax_delay     0x0                 0
+trax_memstart  0x0                 0
+trax_memend    0x0                 0
+pmg            0x0                 0
+pmpc           0x0                 0
+pm0            0x0                 0
+pm1            0x0                 0
+pmctrl0        0x0                 0
+pmctrl1        0x0                 0
+pmstat0        0x0                 0
+pmstat1        0x0                 0
+ocdid          0x0                 0
+ocd_dcrclr     0x0                 0
+ocd_dcrset     0x0                 0
+ocd_dsr        0x0                 0
+a0             0x8200de9a          -2113872230
+a1             0x3fc91720          1070143264
+a2             0x4201b7e4          1107408868
+a3             0x3fca45fc          1070220796
+a4             0x0                 0
+a5             0x0                 0
+a6             0x0                 0
+a7             0x0                 0
+a8             0x820117a5          -2113857627
+a9             0x3fc91680          1070143104
+a10            0x3c06614e          1007051086
+a11            0x3fc91728          1070143272
+a12            0x2                 2
+a13            0x3fc8e75c          1070131036
+a14            0x3fca6d64          1070230884
+a15            0x0                 0
+
+# session #4 - with wifi-logs logging
+
+```
+INFO - esp-wifi configuration Config { rx_queue_size: 5, tx_queue_size: 3, static_rx_buf_num: 10, dynamic_rx_buf_num: 32, static_tx_buf_num: 0, dynamic_tx_buf_num: 32, ampdu_rx_enable: 0, ampdu_tx_enable: 0, amsdu_tx_enable: 0, rx_ba_win: 6, max_burst_size: 1, country_code: "CN", country_code_operating_class: 0, mtu: 1492, heap_size: 65536, tick_rate_hz: 100, listen_interval: 3, beacon_timeout: 6, ap_beacon_timeout: 300, failure_retry_cnt: 1, scan_method: 0 }
+INFO - pp rom version: e7ae62f
+
+INFO - net80211 rom version: e7ae62f
+
+INFO - I (2231) wifi:
+INFO - wifi driver task: 00, prio:253, stack:6656, core=0
+INFO -
+
+INFO - I (2239) wifi:
+INFO - wifi firmware version: e309346
+INFO -
+
+INFO - I (2244) wifi:
+INFO - wifi certification version: v7.0
+INFO -
+
+INFO - I (2250) wifi:
+INFO - config NVS flash: disabled
+INFO -
+
+INFO - I (2256) wifi:
+INFO - config nano formating: disabled
+INFO -
+
+INFO - I (2262) wifi:
+INFO - Init data frame dynamic rx buffer num: 32
+INFO -
+
+INFO - I (2269) wifi:
+INFO - Init static rx mgmt buffer num: 10
+INFO -
+
+INFO - I (2275) wifi:
+INFO - Init management short buffer num: 32
+INFO -
+
+INFO - I (2282) wifi:
+INFO - Init dynamic tx buffer num: 32
+INFO -
+
+INFO - I (2288) wifi:
+INFO - Init static tx FG buffer num: 2
+INFO -
+
+INFO - I (2294) wifi:
+INFO - Init static rx buffer size: 2212
+INFO -
+
+INFO - I (2300) wifi:
+INFO - Init static rx buffer num: 10
+INFO -
+
+INFO - I (2306) wifi:
+INFO - Init dynamic rx buffer num: 32
+INFO -
+
+INFO - V (2312) wifi:
+INFO - hint=255, act_dur=<0,120>, pas_dur=360, nchans=14 history_num=0
+INFO -
+
+INFO - W (2322) wifi:
+INFO - Affected by the ESP-NOW encrypt num, set the max connection num to 10
+INFO -
+
+INFO - W (2331) wifi:
+INFO - Affected
+```
+
+and when it works:
+
+```
+INFO - esp-wifi configuration Config { rx_queue_size: 5, tx_queue_size: 3, static_rx_buf_num: 10, dynamic_rx_buf_num: 32, static_tx_buf_num: 0, dynamic_tx_buf_num: 32, ampdu_rx_enable: 0, ampdu_tx_enable: 0, amsdu_tx_enable: 0, rx_ba_win: 6, max_burst_size: 1, country_code: "CN", country_code_operating_class: 0, mtu: 1492, heap_size: 65536, tick_rate_hz: 100, listen_interval: 3, beacon_timeout: 6, ap_beacon_timeout: 300, failure_retry_cnt: 1, scan_method: 0 }
+INFO - pp rom version: e7ae62f
+
+INFO - net80211 rom version: e7ae62f
+
+INFO - I (2232) wifi:
+INFO - wifi driver task: 00, prio:253, stack:6656, core=0
+INFO -
+
+INFO - I (2241) wifi:
+INFO - wifi firmware version: e309346
+INFO -
+
+INFO - I (2246) wifi:
+INFO - wifi certification version: v7.0
+INFO -
+
+INFO - I (2252) wifi:
+INFO - config NVS flash: disabled
+INFO -
+
+INFO - I (2257) wifi:
+INFO - config nano formating: disabled
+INFO -
+
+INFO - I (2264) wifi:
+INFO - Init data frame dynamic rx buffer num: 32
+INFO -
+
+INFO - I (2270) wifi:
+INFO - Init static rx mgmt buffer num: 10
+INFO -
+
+INFO - I (2277) wifi:
+INFO - Init management short buffer num: 32
+INFO -
+
+INFO - I (2283) wifi:
+INFO - Init dynamic tx buffer num: 32
+INFO -
+
+INFO - I (2289) wifi:
+INFO - Init static tx FG buffer num: 2
+INFO -
+
+INFO - I (2295) wifi:
+INFO - Init static rx buffer size: 2212
+INFO -
+
+INFO - I (2301) wifi:
+INFO - Init static rx buffer num: 10
+INFO -
+
+INFO - I (2307) wifi:
+INFO - Init dynamic rx buffer num: 32
+INFO -
+
+INFO - V (2314) wifi:
+INFO - hint=255, act_dur=<0,120>, pas_dur=360, nchans=14 history_num=0
+INFO -
+
+INFO - W (2323) wifi:
+INFO - Affected by the ESP-NOW encrypt num, set the max connection num to 10
+INFO -
+
+INFO - W (2332) wifi:
+INFO - Affected by the ESP-NOW encrypt num, set the max connection num to 10
+INFO -
+
+wifi_set_configuration returned Ok(())
+INFO - V (2371) wifi:
+INFO - ht40u freq=2422, chan=1
+INFO -
+
+INFO - D (2372) wifi:
+INFO - filter: set rx policy=0
+INFO -
+
+INFO - I (2373) wifi:
+INFO - mode : softAP (de:54:75:d8:7e:b8)
+INFO -
+
+INFO - D (2377) wifi:
+INFO - filter: set rx policy=9
+INFO -
+
+INFO - V (2383) wifi:
+INFO - ht40u freq=2422, chan=1
+INFO -
+
+INFO - I (2389) wifi:
+INFO - Total power save buffer number: 16
+INFO -
+
+INFO - I (2394) wifi:
+INFO - Init max length of beacon: 752/752
+INFO -
+
+INFO - I (2401) wifi:
+INFO - Init max length of beacon: 752/752
+INFO -
+
+INFO - I (2408) wifi:
+INFO - Set ps type: 0, coexist: 0
+
+INFO -
+
+INFO - I (2413) wifi:
+INFO - set country: cc=CN schan=1 nchan=13 policy=1
+
+INFO -
+
+is wifi started: Ok(true)
+Ok(EnumSet(AccessPoint))
+INFO - Set hardware address: Ethernet(Address([222, 84, 117, 216, 126, 184]))
+Start busy loop on main. Connect to the AP `esp-wifi` and point your browser to http://192.168.2.1:8080/
+Use a static IP in the range 192.168.2.2 .. 192.168.2.255, use gateway 192.168.2.1
+```
+
+# session #5
+
+register_chipv7_phy
+ram_phy_dis_hw_set_freq
+
+register_chipv7_phy_init_param
+
+(gdb) info address rf_init
+Symbol "rf_init" is at 0x4203bb00 in a file compiled without debugging.
+
+rf_init
+
+tsens_read_init_new
+
+bias_reg_set
+
+phy_get_i2c_data
+
+ram_phy_i2c_init1
+
+rc_cal
+
+
+phy_i2c_init2
+
+set_chan_freq_hw_init  ...
+
+get_bias_ref_code 
+
+ram_chip_i2c_readReg
+
+ram_get_i2c_hostid
+
+ram_chip_i2c_writeReg
+
+
+

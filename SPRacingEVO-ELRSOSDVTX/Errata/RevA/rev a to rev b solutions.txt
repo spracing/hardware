@@ -1,0 +1,65 @@
+
+Needed Signals   Solution
+RF_PA_TXEN_1     Move to IO extender.
+RF_PA_TXEN_2     Move to IO extender.
+RF_SPI_NSS_1     Use ?
+RF_SPI_NSS_2     Use IO4 (output)
+PWM_IO1          Use IO26 (output)
+PWM_IO2          Use IO21 (output)
+
+Existing signals
+VTX_SPI_LE       Move to IO extender (IO21 freed)
+OSDUART_SW_EN    Move to IO extender (IO4 freed)
+VTX_PA_EN        Move to IO extender (IO2 freed)
+nRESET           Move to IO extender (IO5 freed, *needs PU on boot, strapping pin)
+CAM_OSD_CONTROL  Move to STM32 (IO26 freed)
+ADC_VBAT         Move to STM32? (IO37 freed, doesn't help, need output pins!)
+
+New signals needed.
+I2C_SCL          Use IO2?
+I2C_SDA          Use IO5? (needs PU on boot, however, I2C uses pull-ups!)
+
+
+OR
+
+Move 2xPWM signals to JTAG, requires fast bi-directional buffer (fast and bidirectional to enable JTAG use)
+Move various EN/RESET signals to IO expander (frees up to 8 outputs, takes 2 freed outputs for use with SCL/SDA)
+Move CAM_OSD_CONTROL to STM32.
+
+RF_SPI_NSS_1     Use IO2 (strapping pin - PD, NSS is active low, but without clock should have no effect on SX1280)
+RF_SPI_NSS_2     Use IO26
+PWM_IO1          Use IO12 (requires fast bi-directional buffer, strapping pin - PD)
+PWM_IO2          Use IO15 (requires fast bi-directional buffer, strapping pin - PU)
+
+OSDUART_SW_EN    Move to I2C expander (Frees IO4). 
+VTX_PA_EN        Move to I2C expander (Frees IO2 strapping pin - PD)
+RF_PA_TXEN_1     Use I2C expander.
+RF_PA_TXEN_2     Use I2C expander.
+RF_NRESET        Use I2C expander or delete entirely, frees IO5)
+CAM_OSD_CONTROL  Move to STM32.
+
+I2C_SCL          Use IO4 (I2C needs PU)
+I2C_SDA          Use IO5 (strapping pin, PU, I2C needs PU)
+
+OR
+
+Drop PWM and JTAG support.
+
+RF_PA_TXEN_1     Use IO12 (output, strapping pin - PD)
+RF_PA_TXEN_2     Use IO15 (output, strapping pin - PU)
+RF_SPI_NSS_1     Use IO13 (input)
+RF_SPI_NSS_2     Use IO14 (input)
+
+
+
+OR
+
+Use an SPI shift register, e.g. Nexperial 74LVC595ABQ - DHVQFN-16-EP(2.5x3.5)
+
+MCU      SR
+MOSI  -> DS
+SCLK  -> SHCP (Shift register clock pulse)
+LATCH -> STCP (Shift transfer clock pulse)
+      -> OE (active LOW, tied to GND)
+      -> MR (active LOW, tied to VDD)
+

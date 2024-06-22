@@ -1,0 +1,6 @@
+Tested
+======
+NXP / BAV70W,115 / SOT-323 / LCSC / C28064 / https://lcsc.com/product-detail/Switching-Diode_Nexperia-BAV70W-115_C28064.html
+NXP / BAV74,235 / SOD-23
+
+Maybe use SOT-323 diode for future designs, SOT-323 is smaller, check pricing first!

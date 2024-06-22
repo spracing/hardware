@@ -1,0 +1,94 @@
+
+Sensors
+Gyro - ICM42605
+Baro - BMP388
+
+Radio
+Semtech RF
+
+OSD
+SP Racing Pixel OSD
+
+Lights
+4x LEDs (2 power, 2 status)
+
+VTX
+Pit switch
+2 pin UART
+
+Camera
+CAM OSD + Spare GPIO
+
+Connectors
+USB
+
+IO_1 12-pin
+USART3 RX/TX
+5V BEC
+GND
+UART4 (CAN RX/TX)
+I2C1
+UART8 RX/TX
+5V
+GND
+
+VIDEO 10-pin
+CAM POWER
+GND
+VIDEO IN
+CAM_OSD_OUT
+CAM_GPIO
+USART2 RX/TX (TX next to video out, for cable compatibility)
+VIDEO OUT
+GND
+VTX POWER (power controlled by VTX_ENABLE)
+
+IO_2 4-pin
+GND
+5V BEC
+TIM17_CH1N (led strip)
+BEEP- (Use 5V+ BEC for BEEP+, then beeper only works when battery connected, less annoying when programming).
+
+
+ESC_1 10-pin
+POWER IN (2 pins)
+GND IN (2 pins)
+ADC_CURRENT_1
+USART10 TX (only)
+MOTOR CH1-4
+
+ESC_2 10-pin
+POWER IN (2 pins)
+GND IN (2 pins)
+ADC_CURRENT_2
+USART10 TX (only)
+MOTOR CH5-8
+
+Current specs:
+Pins Function
+4    USB
+6    SPI for MPU + FSYNC + INT on TIM4 (with input capture and fsync generation capability)
+7    SDIO/SDMMC 4bit + SD detect
+10   OctoSPI for code flash
+4    2xI2C (I2C2 for internal Baro connection, I2C1 for external use as pins have CAN and TIM16/17 too)
+7    SPI for RF + TIM8 with 3 channels (BUSY+2 DIOs)
+8    2x 4 channel timers for DSHOT (8 motors)
+1    LedStrip (N channel timer)
+10   COMP + DAC + 3 timers + 4 GPIOS + 2 ADCs for OSD
+1    BIND button
+2    2x Status LEDs
+1    EXTI for BARO
+4    4x ADCs for current1/current2/voltage1/voltage2
+1    BEEP Output
+1    VTX_PIT
+9    5 UARTS (1 USART is TX only, for bi-directional protocols like the VTX or ESC Telemetry, UART4 is CAN capable)
+
+2    RCC32 (Low Speed Oscilator) input.  Not used, but could use unused TIM17 to use GPIOC ODR via DMA as all pins on GPIOC are AF or ANALOG.
+
+PC0/PC1 are 5v tolerant ADC inputs.  Use for current monitoring so that short over-current conditions are handled (i.e. current sensor A/mV is over 3.3v.)
+
+PC2/PC3 for Battery and Regulator voltages.  Analog RSSI not needed as the system has RF built-in with digital connection to RF chip.
+
+ADC2 unused.
+
+PC4/PC5 for OSD - One connection to video in, one connection after the video filter.

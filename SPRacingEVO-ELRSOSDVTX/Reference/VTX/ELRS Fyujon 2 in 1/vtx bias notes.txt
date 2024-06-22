@@ -1,0 +1,86 @@
+12khz PWM
+
+Yellow = STM32/PWM
+Cyan = RTC6705/PAOUT1 (after PWM bias inductor)
+Purple = MOSFET Drain
+Blue = MOSFET Gate
+
+Voltages below are from Cygan/PAOUT1
+
+No Camera connected!
+
+1) 100mW to RCE in BF.
+
+100mW = 760mV, 60uS, 73.17%
+
+~0mW = 80mV, 68uS, 83.01%
+
+2) Power on sequence, with FC, 400mW configured in BF.
+
+Initial PWM = 69uS, 84.15%
+
+After settling
+
+~200mW = -80mV, 68uS, 41.21%
+
+
+
+
+
+Camera connected!
+
+3) Power on sequence, with FC, 400mW configured in BF.
+
+Initial PWM = 68.8uS, 82.69%
+
+Drain/Gate crossover PWM = 83.17uS, 69.2uS, after 37.5mS
+
+After 600mS PWM freq and power changes:
+
+~200mW = 1.52mV, 56uS, 69.29%
+
+
+4) Power on sequence, with FC, 100mW configured in BF while VTX was powered off.
+
+
+Initial PWM = 68.8uS, 82.69%
+
+After 600mS PWM freq and power changes:
+
+~200mW = 1.52mV, 56uS, 69.29%
+
+After about 100mS PWM freq and power changes again, after settling:
+
+~60mW = 1.44V, 58uS, 69.88%
+
+Dip observed in MOSFET drain, every 100mS (10Hz), voltage of drain drops around 140mV and recovers.
+16-25Hz ripple observed in MOSFET drain, ~56mV amplitude.
+Exact same frequency of dips and ripples observed in PAOUT1 signal.
+
+5) Ripple
+
+For ~43mV drain ripple, the PAOUT ripple is about 1:2, at ~23mV.
+
+
+6) Camera connected, vtx warmed up.
+
+VTX tables and measurements on Fatshark 4 (5800Mhz)
+
+     PL    Min   Max,    Width    RFB   Gate  Drain  Off D
+1 -   1,   0mW,   0mW,  68.8uS, 0.115V, 2.69V, 0.20V, 16.50%
+2 -   2,   0mW,   0mW,  68.8uS, 0.115V, 2.69V, 0.20V, 16.50%
+3 -  14,  21mW,  26mW,  60.4uS, 0.540V, 2.32V, 1.37V, 26.70%
+4 -  19,  96mW, 100mW,  60.0uS, 0.840V, 2.32V, 1.92V, 27.43%
+5 -  22, 192mW, 217mW,  59.6uS, 1.118V, 2.32V, 2.44V, 27.67%
+6 -  25, 339mW, 352mW,  55.2uS, 1.630V, 2.32V, 3.29V, 33.01%
+
+
+7) Voltage over series RF bias resistor
+
+1 - 25mW - ~83.60mV
+2 - 100mW - ~82.00mV
+
+Resistor measures 100ohms (in-circuit)
+
+
+
